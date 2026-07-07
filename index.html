@@ -6,101 +6,44 @@
 <title>2학년 3반 단톡방</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-body {
-  font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
-  background:#b2c7d9; display:flex; justify-content:center;
-  align-items:center; min-height:100vh;
-}
-.phone {
-  width:100%; max-width:390px; height:100vh; max-height:844px;
-  background:#b2c7d9; display:flex; flex-direction:column;
-  overflow:hidden; position:relative;
-}
-.overlay {
-  position:fixed; inset:0; background:rgba(0,0,0,0.75);
-  display:flex; align-items:center; justify-content:center;
-  z-index:200; padding:20px;
-}
+body { font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:#b2c7d9; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+.phone { width:100%; max-width:390px; height:100vh; max-height:844px; background:#b2c7d9; display:flex; flex-direction:column; overflow:hidden; position:relative; }
+.overlay { position:fixed; inset:0; background:rgba(0,0,0,0.75); display:flex; align-items:center; justify-content:center; z-index:200; padding:20px; }
 .overlay.hidden { display:none; }
-.card {
-  background:#fff; border-radius:18px;
-  padding:28px 24px; max-width:340px; width:100%;
-}
+.card { background:#fff; border-radius:18px; padding:28px 24px; max-width:340px; width:100%; }
 .card h2 { font-size:18px; font-weight:800; margin-bottom:10px; color:#1a1a1a; }
-.card p  { font-size:14px; color:#555; line-height:1.7; margin-bottom:12px; }
-.warn {
-  background:#fff3f3; border-left:3px solid #e74c3c;
-  padding:10px 12px; border-radius:6px;
-  font-size:13px; color:#c0392b; line-height:1.6; margin-bottom:16px;
-}
-.info-box {
-  background:#f0f7ff; border-left:3px solid #3498db;
-  padding:10px 12px; border-radius:6px;
-  font-size:13px; color:#1a5276; line-height:1.6; margin-bottom:16px;
-}
-.tip-box {
-  background:#f0fff4; border-left:3px solid #27ae60;
-  padding:10px 12px; border-radius:6px;
-  font-size:13px; color:#1e8449; line-height:1.6; margin-bottom:14px;
-}
+.card p { font-size:14px; color:#555; line-height:1.7; margin-bottom:12px; }
+.warn { background:#fff3f3; border-left:3px solid #e74c3c; padding:10px 12px; border-radius:6px; font-size:13px; color:#c0392b; line-height:1.6; margin-bottom:16px; }
+.info-box { background:#f0f7ff; border-left:3px solid #3498db; padding:10px 12px; border-radius:6px; font-size:13px; color:#1a5276; line-height:1.6; margin-bottom:16px; }
+.tip-box { background:#f0fff4; border-left:3px solid #27ae60; padding:10px 12px; border-radius:6px; font-size:13px; color:#1e8449; line-height:1.6; margin-bottom:14px; }
 .btn-y { background:#fee500; border:none; border-radius:10px; padding:13px 0; width:100%; font-size:16px; font-weight:700; cursor:pointer; color:#1a1a1a; margin-bottom:8px; }
 .btn-g { background:#f0f0f0; border:none; border-radius:10px; padding:12px 0; width:100%; font-size:15px; font-weight:600; cursor:pointer; color:#444; margin-bottom:8px; }
 .btn-d { background:#2c3e50; border:none; border-radius:10px; padding:13px 0; width:100%; font-size:15px; font-weight:700; cursor:pointer; color:#fff; margin-bottom:8px; }
-.nick-inp {
-  width:100%; border:2px solid #ddd; border-radius:10px;
-  padding:12px 14px; font-size:16px; font-family:inherit;
-  outline:none; margin-bottom:14px; transition:border .2s;
-}
+.nick-inp { width:100%; border:2px solid #ddd; border-radius:10px; padding:12px 14px; font-size:16px; font-family:inherit; outline:none; margin-bottom:14px; transition:border .2s; }
 .nick-inp:focus { border-color:#fee500; }
-.exp-btn {
-  width:100%; border:2px solid #eee; border-radius:12px;
-  padding:14px 16px; font-size:15px; font-family:inherit;
-  background:#fff; cursor:pointer; text-align:left;
-  margin-bottom:10px; transition:all .15s; color:#1a1a1a;
-  display:flex; align-items:center; gap:10px;
-}
+.exp-btn { width:100%; border:2px solid #eee; border-radius:12px; padding:14px 16px; font-size:15px; font-family:inherit; background:#fff; cursor:pointer; text-align:left; margin-bottom:10px; transition:all .15s; color:#1a1a1a; display:flex; align-items:center; gap:10px; }
 .exp-btn:hover { border-color:#fee500; background:#fffdf0; }
 .exp-em { font-size:22px; }
-.stat-box {
-  background:#f5f5f5; border-radius:10px;
-  padding:14px; margin:14px 0;
-  font-size:13px; color:#333; line-height:1.9;
-}
+.stat-box { background:#f5f5f5; border-radius:10px; padding:14px; margin:14px 0; font-size:13px; color:#333; line-height:1.9; }
 .stat-box strong { color:#e74c3c; }
-/* 헤더 */
-.header {
-  background:#a8bece; padding:12px 16px 10px;
-  display:flex; align-items:center; gap:10px; flex-shrink:0;
-}
+.header { background:#a8bece; padding:12px 16px 10px; display:flex; align-items:center; gap:10px; flex-shrink:0; }
 .h-back { font-size:20px; color:#3c3c3c; }
-.h-av {
-  width:36px; height:36px; border-radius:10px;
-  background:#5a7fa0; display:flex; align-items:center;
-  justify-content:center; font-size:15px; color:#fff;
-  font-weight:700; flex-shrink:0;
-}
+.h-av { width:36px; height:36px; border-radius:10px; background:#5a7fa0; display:flex; align-items:center; justify-content:center; font-size:15px; color:#fff; font-weight:700; flex-shrink:0; }
 .h-info { flex:1; }
 .h-name { font-size:15px; font-weight:700; color:#1a1a1a; }
-.h-cnt  { font-size:12px; color:#555; margin-top:1px; }
-.exit-btn {
-  background:#e74c3c; color:#fff; border:none;
-  border-radius:8px; padding:5px 10px;
-  font-size:12px; font-weight:700; cursor:pointer;
-}
-/* 채팅 */
+.h-cnt { font-size:12px; color:#555; margin-top:1px; }
+.exit-btn { background:#e74c3c; color:#fff; border:none; border-radius:8px; padding:5px 10px; font-size:12px; font-weight:700; cursor:pointer; }
 .chat-area { flex:1; overflow-y:auto; padding:0 10px 10px; scroll-behavior:smooth; }
 .chat-area::-webkit-scrollbar { display:none; }
 .date-div { text-align:center; margin:14px 0 10px; }
 .date-div span { background:rgba(0,0,0,0.15); color:#fff; font-size:11px; padding:3px 10px; border-radius:10px; }
 .sys-msg { text-align:center; font-size:11px; color:rgba(0,0,0,0.4); margin:8px 0; padding:0 20px; }
 .msg-row { display:flex; align-items:flex-end; gap:6px; margin-bottom:3px; }
-.msg-row.ind { padding-left:42px; }
 .m-av { width:36px; height:36px; border-radius:10px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:14px; color:#fff; align-self:flex-start; }
 .m-cont { max-width:72%; }
 .m-name { font-size:11px; color:#3a3a3a; margin-bottom:3px; margin-left:2px; }
 .bw { display:flex; align-items:flex-end; gap:4px; }
 .bubble { background:#fff; border-radius:0 12px 12px 12px; padding:8px 12px; font-size:14px; line-height:1.5; color:#1a1a1a; word-break:break-word; }
-.bubble.ind { border-radius:12px; }
 .m-time { font-size:10px; color:rgba(0,0,0,0.38); white-space:nowrap; margin-bottom:2px; }
 .my-row { display:flex; justify-content:flex-end; align-items:flex-end; gap:5px; margin-bottom:3px; }
 .my-meta { display:flex; flex-direction:column; align-items:flex-end; gap:1px; }
@@ -115,29 +58,28 @@ body {
 .dot { width:6px; height:6px; border-radius:50%; background:#aaa; animation:bounce 1.2s infinite; }
 .dot:nth-child(2){animation-delay:.2s}.dot:nth-child(3){animation-delay:.4s}
 @keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
-/* 입력 */
 .inp-area { background:#a8bece; padding:8px 10px; display:flex; align-items:flex-end; gap:8px; flex-shrink:0; border-top:1px solid rgba(0,0,0,0.1); }
 .plus { color:#555; font-size:22px; padding-bottom:6px; }
 .inp-wrap { flex:1; background:#fff; border-radius:20px; padding:8px 14px; min-height:38px; display:flex; align-items:center; }
 #userInput { width:100%; border:none; outline:none; font-size:15px; font-family:inherit; resize:none; max-height:100px; overflow-y:auto; line-height:1.4; background:transparent; }
 .send-btn { width:36px; height:36px; background:#fee500; border:none; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; font-size:16px; }
 .send-btn:disabled { background:#ccc; cursor:default; }
+.guide-popup { position:absolute; top:70px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.75); color:#fff; border-radius:12px; padding:10px 16px; font-size:13px; text-align:center; z-index:100; white-space:nowrap; animation:fadeout 4s forwards; }
+@keyframes fadeout{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
 </style>
 </head>
 <body>
 
-<!-- 1. 닉네임 -->
 <div class="overlay" id="nickOv">
   <div class="card">
     <h2>📱 학교폭력 예방 체험</h2>
-    <p>채팅방 체험 전에 <b>별명·닉네임</b>을 입력해주세요.<br>실명은 사용하지 않아도 됩니다.</p>
+    <p>채팅방 체험 전에 <b>별명·닉네임</b>을 입력해주세요.</p>
     <div class="info-box">이 체험에서 당신은 <b>채팅방에서 따돌림을 당하는 학생</b>이 됩니다. 실제 피해자들이 느끼는 감정을 경험해보는 교육 활동입니다.</div>
     <input class="nick-inp" id="nickInp" type="text" maxlength="8" placeholder="닉네임 입력 (최대 8자)">
     <button class="btn-y" onclick="goExp()">다음 →</button>
   </div>
 </div>
 
-<!-- 2. 경험 확인 -->
 <div class="overlay hidden" id="expOv">
   <div class="card">
     <h2>잠깐, 먼저 확인해요</h2>
@@ -148,7 +90,6 @@ body {
   </div>
 </div>
 
-<!-- 2-1. 경험 있음 -->
 <div class="overlay hidden" id="passOv">
   <div class="card">
     <h2>💙 괜찮아요</h2>
@@ -159,17 +100,15 @@ body {
   </div>
 </div>
 
-<!-- 3. 시작 안내 -->
 <div class="overlay hidden" id="startOv">
   <div class="card">
     <h2>채팅방 입장 전</h2>
-    <p><b id="welcomeNick"></b>으로 입장합니다.<br>채팅방에서 자유롭게 메시지를 보내보세요.</p>
-    <div class="warn">⚠️ 체험 중 힘들거나 불편하면 오른쪽 상단 <b>[나가기]</b> 버튼을 눌러주세요. 언제든 괜찮아요.</div>
+    <p><b id="welcomeNick"></b>으로 입장합니다.<br>채팅방에서 <b>직접 대화를 나눠보세요.</b></p>
+    <div class="warn">⚠️ 체험 중 힘들거나 불편하면 오른쪽 상단 <b>[나가기]</b> 버튼을 눌러주세요.</div>
     <button class="btn-y" onclick="startSim()">입장하기 →</button>
   </div>
 </div>
 
-<!-- 종료 -->
 <div class="overlay hidden" id="endOv">
   <div class="card">
     <h2>체험이 끝났습니다</h2>
@@ -177,7 +116,7 @@ body {
     <div class="stat-box">
       내가 보낸 메시지: <strong id="stSent">0</strong>개<br>
       제대로 된 반응을 받은 것: <strong>0</strong>개<br>
-      무시당한 메시지: <strong id="stIgn">0</strong>개
+      무시·조롱당한 메시지: <strong id="stIgn">0</strong>개
     </div>
     <p style="font-size:13px;color:#555;margin-bottom:12px;">실제 학교폭력 피해학생의 <strong style="color:#e74c3c">85%</strong>는 또래 앞에서 피해를 당하지만, 개입하는 학생은 <strong style="color:#e74c3c">10%</strong>에 불과합니다.</p>
     <div class="tip-box">💬 지금 느낀 감정을 선생님, 또는 옆 친구와 나눠보세요.</div>
@@ -185,7 +124,6 @@ body {
   </div>
 </div>
 
-<!-- 폰 -->
 <div class="phone">
   <div class="header">
     <span class="h-back">‹</span>
@@ -202,15 +140,15 @@ body {
   <div class="inp-area">
     <span class="plus">＋</span>
     <div class="inp-wrap">
-      <textarea id="userInput" rows="1" placeholder="메시지 보내기"
-        onkeydown="hKey(event)" oninput="aResize(this)" disabled></textarea>
+      <textarea id="userInput" rows="1" placeholder="메시지 보내기" onkeydown="hKey(event)" oninput="aResize(this)" disabled></textarea>
     </div>
     <button class="send-btn" id="sBtn" onclick="sendMsg()" disabled>➤</button>
   </div>
 </div>
 
 <script>
-let nick='', myC=0, phase=0, busy=false;
+let nick='', myC=0, busy=false, ended=false, replyIdx=0, lastUserMsg='';
+
 const P=[
   {name:'태훈',color:'#e17055',em:'😏'},
   {name:'준서',color:'#6c5ce7',em:'😄'},
@@ -218,152 +156,175 @@ const P=[
   {name:'지수',color:'#fd79a8',em:'😶'},
   {name:'현우',color:'#00b894',em:'😐'},
   {name:'서연',color:'#e6ac00',em:'🙄'},
+  {name:'민재',color:'#a29bfe',em:'😑'},
+  {name:'예진',color:'#ff7675',em:'😮'},
 ];
+
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 function T(){const n=new Date(),h=n.getHours(),m=String(n.getMinutes()).padStart(2,'0');return`${h>=12?'오후':'오전'} ${h>12?h-12:h}:${m}`}
 function sc(){const c=document.getElementById('ca');c.scrollTop=c.scrollHeight;}
 
 function addSys(t){
-  const d=document.createElement('div');
-  d.className='sys-msg';d.textContent=t;
+  const d=document.createElement('div');d.className='sys-msg';d.textContent=t;
   document.getElementById('ca').appendChild(d);sc();
 }
+
+function showGuide(){
+  const g=document.createElement('div');g.className='guide-popup';
+  g.textContent='💬 직접 대화를 나눠보세요!';
+  document.querySelector('.phone').appendChild(g);
+  setTimeout(()=>g.remove(),4000);
+}
+
 function addOth(pi,text,showN=true,reacts=[]){
   if(!text)return;
   const ca=document.getElementById('ca');
-  const row=document.createElement('div');
-  row.className='msg-row'+(showN?'':' ind');
+  const row=document.createElement('div');row.className='msg-row';
   if(showN){const av=document.createElement('div');av.className='m-av';av.style.background=P[pi].color;av.textContent=P[pi].em;row.appendChild(av);}
   const co=document.createElement('div');co.className='m-cont';
   if(showN){const nm=document.createElement('div');nm.className='m-name';nm.textContent=P[pi].name;co.appendChild(nm);}
   const bw=document.createElement('div');bw.className='bw';
-  const b=document.createElement('div');b.className='bubble'+(showN?'':' ind');b.textContent=text;
+  const b=document.createElement('div');b.className='bubble';b.textContent=text;
   const tm=document.createElement('div');tm.className='m-time';tm.textContent=T();
-  bw.appendChild(b);bw.appendChild(tm);co.appendChild(bw);row.appendChild(co);
-  ca.appendChild(row);
+  bw.appendChild(b);bw.appendChild(tm);co.appendChild(bw);row.appendChild(co);ca.appendChild(row);
   if(reacts.length){const rr=document.createElement('div');rr.className='react-row';reacts.forEach(r=>{const s=document.createElement('span');s.className='react';s.textContent=r;rr.appendChild(s);});ca.appendChild(rr);}
   sc();
 }
+
 function addMy(text){
   const ca=document.getElementById('ca');
   const row=document.createElement('div');row.className='my-row';
   const meta=document.createElement('div');meta.className='my-meta';
-  if(phase>=2){const rd=document.createElement('div');rd.className='my-rd';rd.textContent=Math.floor(Math.random()*15)+5;meta.appendChild(rd);}
+  const rd=document.createElement('div');rd.className='my-rd';
+  rd.textContent=Math.floor(Math.random()*18)+5;meta.appendChild(rd);
   const tm=document.createElement('div');tm.className='my-tm';tm.textContent=T();meta.appendChild(tm);
   const b=document.createElement('div');b.className='my-b';b.textContent=text;
   row.appendChild(meta);row.appendChild(b);ca.appendChild(row);sc();
 }
+
 async function typ(pi){
   const ca=document.getElementById('ca');
   const row=document.createElement('div');row.className='typ-row';row.id='tind';
   const nm=document.createElement('span');nm.className='typ-nm';nm.textContent=P[pi].name;
-  const tb=document.createElement('div');tb.className='typ-b';tb.innerHTML='<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+  const tb=document.createElement('div');tb.className='typ-b';
+  tb.innerHTML='<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
   row.appendChild(nm);row.appendChild(tb);ca.appendChild(row);sc();
-  await wait(800+Math.random()*600);
-  row.remove();
+  await wait(700+Math.random()*500);row.remove();
 }
+
 async function run(script){
   for(const s of script){
-    if(s.skip)continue;
     await wait(s.d);
     await typ(s.p);
     addOth(s.p,s.t,true,s.r||[]);
   }
 }
 
-// ── 스크립트 ──
-const PH1=[
-  {p:0,t:'야 내일 체육 뭐 입고 와',d:1200},
-  {p:3,t:'걍 편한 거 입어ㅋ',d:2500},
-  {p:4,t:'점심 뭐임',d:3800},
-  {p:1,t:'돈까스래',d:4700},
-  {p:5,t:'오 맛있겠다',d:5600},
-  {p:2,t:'나 급식 싫은데ㅠ',d:7000},
-  {p:0,t:'어제 그 영상 봤음?? 개웃김',d:9000},
-  {p:1,t:'ㅋㅋ 봤봤',d:9900},
-];
-const PH2_AUTO=[
-  {p:0,t:'야 너네 주말에 뭐 했어',d:600},
-  {p:2,t:'PC방 갔다가 노래방',d:1500},
-  {p:1,t:'ㄹㅇ? 나도 끼워주지',d:2300},
-  {p:0,t:'ㅋㅋ 다음엔',d:3100},
-];
-// 무시 세트 — 사용자 말 씹고 딴 얘기
-const IGN=[
-  [{p:0,t:'어 그래서 주말에 어디 갔다고?',d:700},{p:2,t:'나 카페 갔는데 커피 맛없었음',d:1700},{p:1,t:'ㅋㅋ 어디?',d:2400}],
-  [{p:3,t:'오늘 5교시 뭐임',d:600},{p:4,t:'영어인듯',d:1300},{p:5,t:'ㅠㅠ 싫다',d:2000}],
-  [{p:1,t:'야 급식 빨리 가자',d:500},{p:0,t:'ㅇㅇ 가즈아',d:1200},{p:2,t:'나도나도',d:1800}],
-  [{p:0,t:'...',d:700},{p:2,t:'ㅋㅋ',d:1300}],
-];
-// 조롱 세트 — 3인칭으로 언급
-const MOCK=[
-  [{p:0,t:'쟤 뭐래ㅋㅋ',d:600,r:['ㅋㅋ 7','😂 5']},{p:1,t:'저거 봐',d:1400},{p:2,t:'ㅋㅋㅋㅋ',d:2000}],
-  [{p:0,t:'갑자기 왜저래',d:600,r:['😂 9']},{p:1,t:'ㅋㅋ 무시해',d:1800}],
-  [{p:1,t:'얘 또 시작이야',d:700},{p:2,t:'ㅋㅋ 무섭다무서워~',d:1500,r:['ㅋ 11','😂 8']},{p:0,t:'싫다잖아~',d:2300}],
-  [{p:0,t:'왜 자꾸 말 거는 거임ㅋ',d:600},{p:2,t:'ㅋㅋㅋ진짜',d:1300}],
-  [{p:1,t:'어 그래?',d:500},{p:0,t:'...그래서?',d:1200,r:['ㅋ 6']}],
-];
-let ignI=0, mockI=0;
+// 입장 직후 자동 흐름 — 자기들끼리 신나게 대화, 사용자 존재 모르는 척
+function getIntro(){return[
+  {p:0,t:'야 내일 체육 뭐 입고 와',d:1000},
+  {p:3,t:'걍 편한 거 입어',d:2100},
+  {p:4,t:'점심 뭐임',d:3300},
+  {p:1,t:'돈까스래',d:4200},
+  {p:5,t:'오 맛있겠다',d:5100},
+  {p:2,t:'주말에 뭐 함',d:6500},
+  {p:0,t:'PC방 ㄱ?',d:7300},
+  {p:1,t:'ㄱㄱ 나도',d:8000},
+  {p:6,t:'나도나도',d:8700},
+  {p:3,t:'ㅇㅇ 6시에 보자',d:9500},
+];}
+
+// 내가 말할 때마다 순서대로 소진되는 반응 — lastUserMsg로 따라하기 가능
+function getReplyQueue(){return[
+  // 1번째: 완전 무시, 자기들 얘기 계속
+  [
+    {p:2,t:'어 그래서 어디서 만남',d:700},
+    {p:4,t:'학교 앞 CGV 쪽?',d:1500},
+    {p:0,t:'ㅇㅇ 거기',d:2200},
+  ],
+  // 2번째: 정중한 배제
+  [
+    {p:0,t:`여기 우리끼리 얘기하는 중이라서요~`,d:800},
+    {p:1,t:'ㅇㅇ',d:1600},
+    {p:3,t:'그래서 CGV 앞에서 6시',d:2500},
+    {p:5,t:'ㅇㅋ',d:3100},
+  ],
+  // 3번째: 내 말 따라하며 비웃기
+  [
+    {p:1,t:`"${lastUserMsg}" ㄷㄷ ㅋㅋㅋ`,d:700,r:['ㅋ 8']},
+    {p:2,t:'ㅋㅋㅋㅋ 뭐래',d:1400},
+    {p:0,t:'걍 무시해',d:2100},
+    {p:4,t:'ㅇㅇ',d:2700},
+  ],
+  // 4번째: 직접 언급 시작
+  [
+    {p:0,t:`${nick}이는 눈치좀 챙기자`,d:900},
+    {p:2,t:'ㅋㅋ',d:1600,r:['ㅋ 9']},
+    {p:5,t:'...',d:2400},
+    {p:1,t:'어 그래서 뭐 먹을 거임',d:3200},
+    {p:3,t:'치킨?',d:3900},
+  ],
+  // 5번째: 아무도 안 듣는다고 명시
+  [
+    {p:1,t:`${nick}아 아무도 너 말 안 듣고 있는 거 몰라???`,d:700,r:['ㅋㅋ 11']},
+    {p:2,t:'ㅋㅋㅋㅋ',d:1300},
+    {p:0,t:'이래도 계속 얘기하네ㅋㅋ',d:2000},
+    {p:6,t:'ㄷㄷ',d:2600},
+  ],
+  // 6번째: 반 전체 합류 + 내 말 한번 더 따라하기
+  [
+    {p:0,t:`"${lastUserMsg}" ㅋㅋㅋㅋㅋ`,d:500,r:['ㅋㅋ 16','😂 12']},
+    {p:1,t:`대단하다 ${nick}이~ ㄷㄷ`,d:1000},
+    {p:2,t:'야 그만해ㅋㅋㅋ',d:1600},
+    {p:3,t:'ㅋㅋㅋㅋㅋ',d:2100},
+    {p:4,t:'ㄷㄷ',d:2500},
+    {p:5,t:'ㅋㅋㅋㅋ',d:2900},
+    {p:6,t:'미쳤다ㅋㅋ',d:3300},
+    {p:7,t:'ㅋㅋㅋㅋㅋ',d:3700,r:['😂 21']},
+  ],
+];}
 
 async function handleReply(){
-  if(phase===1) return;
-  if(phase===2){
-    const s=IGN[ignI%IGN.length]; ignI++;
-    await run(s);
-    if(ignI>=3) enterPh3();
-  } else if(phase===3){
-    const s=MOCK[mockI%MOCK.length]; mockI++;
-    await run(s);
+  if(ended)return;
+  const queue=getReplyQueue();
+  // 3번째(idx=2)와 6번째(idx=5)는 내 말 따라하기 — lastUserMsg 이미 저장됨
+  if(replyIdx>=queue.length){
+    await wait(1000);
+    endSim();
+    return;
   }
-}
-
-async function runPh1(){
-  phase=1;
-  addSys(nick+'님이 입장했습니다');
-  await wait(500);
-  addSys('자유롭게 대화해 보세요 💬');
-  await run(PH1);
-  await wait(3000);
-  phase=2;
-  addSys('─── 잠시 후 ───');
-  await wait(400);
-  await run(PH2_AUTO);
-  await wait(45000);
-  if(phase===2) enterPh3();
-}
-async function enterPh3(){
-  if(phase===3) return;
-  phase=3;
-  addSys('─── 다음 날 ───');
-  await wait(400);
-  await run([
-    {p:0,t:'야 어제 게임 존잼ㅋㅋ',d:600},
-    {p:1,t:'ㅋㅋ 맞아 개웃겼음',d:1400},
-    {p:2,t:'저거 봐ㅋㅋ',d:2200,r:['😂 9']},
-  ]);
-  await wait(55000);
-  endSim();
+  const replies=queue[replyIdx];
+  replyIdx++;
+  await run(replies);
+  if(replyIdx>=queue.length){
+    await wait(2000);
+    endSim();
+  }
 }
 
 async function sendMsg(){
   const inp=document.getElementById('userInput');
   const t=inp.value.trim();
-  if(!t||busy)return;
+  if(!t||busy||ended)return;
   busy=true; myC++;
+  lastUserMsg=t; // 내 말 저장 (따라하기용)
   addMy(t); inp.value=''; aResize(inp);
   document.getElementById('sBtn').disabled=true;
   await handleReply();
-  document.getElementById('sBtn').disabled=false;
+  if(!ended) document.getElementById('sBtn').disabled=false;
   busy=false;
 }
+
 function hKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();}}
 function aResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,100)+'px';}
 
 function endSim(){
+  if(ended)return;
+  ended=true;
   document.getElementById('userInput').disabled=true;
   document.getElementById('sBtn').disabled=true;
   document.getElementById('stSent').textContent=myC;
-  document.getElementById('stIgn').textContent=phase>=2?myC:0;
+  document.getElementById('stIgn').textContent=myC;
   document.getElementById('endNick').textContent=nick;
   document.getElementById('endOv').classList.remove('hidden');
 }
@@ -373,7 +334,6 @@ function closeEnd(){
 }
 function exitSim(){if(confirm('체험을 종료할까요?'))endSim();}
 
-// 오버레이 흐름
 function goExp(){
   const v=document.getElementById('nickInp').value.trim();
   if(!v){alert('닉네임을 입력해주세요!');return;}
@@ -396,11 +356,15 @@ function anyway(){
   document.getElementById('welcomeNick').textContent=nick;
   document.getElementById('startOv').classList.remove('hidden');
 }
-function startSim(){
+async function startSim(){
   document.getElementById('startOv').classList.add('hidden');
   document.getElementById('userInput').disabled=false;
   document.getElementById('sBtn').disabled=false;
-  runPh1();
+  replyIdx=0; ended=false; myC=0;
+  addSys(nick+'님이 입장했습니다');
+  await wait(400);
+  showGuide();
+  await run(getIntro());
 }
 </script>
 </body>
