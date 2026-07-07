@@ -214,8 +214,11 @@ async function typ(pi){
 
 async function run(script){
   for(const s of script){
+    if(ended)return;
     await wait(s.d);
+    if(ended)return;
     await typ(s.p);
+    if(ended)return;
     addOth(s.p,s.t,true,s.r||[]);
   }
 }
